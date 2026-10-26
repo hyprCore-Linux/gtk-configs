@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""gtk-configs — GTK4 editor for Neuronix ~/configs (or --root)."""
+"""gtk-configs — GTK4 editor for hyprCore Linux ~/configs (or --root)."""
 
 from __future__ import annotations
 
@@ -64,7 +64,7 @@ class ConfigsApp(Gtk.Application):
             dialog.set_message("Configs root not found")
             dialog.set_detail(
                 f"{self.root}\n\nCreate ~/configs or pass --root PATH "
-                "(e.g. Neuronix/Build/default/configs)."
+                "(e.g. ~/configs)."
             )
             dialog.set_modal(True)
             dialog.set_buttons(["OK"])
@@ -76,7 +76,7 @@ class ConfigsApp(Gtk.Application):
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Neuronix configs editor (GTK4)")
+    parser = argparse.ArgumentParser(description="hyprCore Linux configs editor (GTK4)")
     add_root_arg(parser)
     args, gtk_args = parser.parse_known_args(argv)
     root = resolve_root(args.root)

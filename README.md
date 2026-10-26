@@ -1,14 +1,14 @@
 # gtk-configs
 
-GTK4 Python editor for Neuronix config trees (`~/configs` or any `--root`).
+GTK4 Python editor for hyprCore Linux config trees (`~/configs` or any `--root`).
 
-Created by Kevin Hinds — [github.com/NeuronixOS/GTK-Apps](https://github.com/NeuronixOS/GTK-Apps)
+Created by Kevin Hinds
 
 ## Local run
 
 ```bash
 cd gtk-configs
-python3 configs.py --root /path/to/Neuronix/Build/default/configs
+python3 configs.py --root ~/configs
 ```
 
 Default without `--root` edits `~/configs` (merged live tree).

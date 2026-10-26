@@ -81,7 +81,7 @@ class ConfigsWindow(Gtk.ApplicationWindow):
                     self,
                     header,
                     about_name="GTK Configs",
-                    about_comments="Neuronix config tree editor for Hyprland, Waybar, Fuzzel, Mako, and more.",
+                    about_comments="hyprCore Linux config tree editor for Hyprland, Waybar, Fuzzel, Mako, and more.",
                 )
             except Exception:
                 pass
