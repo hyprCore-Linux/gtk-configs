@@ -25,3 +25,7 @@ Default without `--root` edits `~/configs` (merged live tree).
 
 - `python3-gi`, `gir1.2-gtk-4.0`
 - Optional: `gir1.2-gtksource-5`
+
+## License
+
+GNU General Public License v3.0. See [LICENSE](LICENSE).
