@@ -71,9 +71,7 @@ class ConfigsWindow(Gtk.ApplicationWindow):
         self._section_pages: dict[str, Gtk.Widget] = {}
 
         header = Gtk.HeaderBar()
-        header.set_show_title_buttons(True)
-        self._title = Gtk.Label(label="Configs")
-        header.set_title_widget(self._title)
+        gtk_theme.prepare_headerbar(header)
         self.set_titlebar(header)
         if gtk_theme is not None:
             try:
@@ -85,6 +83,10 @@ class ConfigsWindow(Gtk.ApplicationWindow):
                 )
             except Exception:
                 pass
+        # Center content (dirty marker); left brand stays "GTK Configs".
+        self._title = getattr(self, "_gtk_theme_content_label", None) or Gtk.Label(
+            label="Configs"
+        )
 
         self.root_label = Gtk.Label(xalign=0)
         self.root_label.add_css_class("dim-label")
@@ -304,8 +306,9 @@ class ConfigsWindow(Gtk.ApplicationWindow):
 
     def _update_root_label(self) -> None:
         self.root_label.set_text(str(self.store.root))
-        dirty = " • modified" if self.store.is_dirty() else ""
-        self._title.set_text(f"Configs{dirty}")
+        text = "Configs • modified" if self.store.is_dirty() else ""
+        self._title.set_text(text)
+        self._title.set_visible(bool(text))
 
     def _mark_dirty(self) -> None:
         n = len(self.store.dirty_files())
